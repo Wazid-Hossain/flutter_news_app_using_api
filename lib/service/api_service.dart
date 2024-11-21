@@ -14,7 +14,27 @@ Future<List<NewsModel>> getAllnews() async{
         if(response.statusCode == 200) {
             Map<String, dynamic> json = jsonDecode(response.body);
             List<dynamic> body = json ['articles'];
-            List<NewsModel> articleslist = body.map((item) => NewsModel.fromJson(item),).toList();
+            List<NewsModel> articleslist = body.map((item) => NewsModel.fromJson(item)).toList();
+            return articleslist;
+
+        } else{
+            throw ("No News Found");
+        }
+
+    } catch(e){
+        throw e;
+
+    }
+}
+
+
+Future<List<NewsModel>> getBrakeinNews() async{
+    try{
+        Response response = await get(Uri.parse(breaking_news_url));
+        if(response.statusCode == 200) {
+            Map<String, dynamic> json = jsonDecode(response.body);
+            List<dynamic> body = json ['articles'];
+            List<NewsModel> articleslist = body.map((item) => NewsModel.fromJson(item)).toList();
             return articleslist;
 
         } else{

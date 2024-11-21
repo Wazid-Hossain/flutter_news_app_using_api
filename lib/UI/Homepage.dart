@@ -15,18 +15,24 @@ class _HomepageState extends State<Homepage> {
     return DefaultTabController
     (length: 2, child: Scaffold
     (appBar: AppBar
-    (title: Text("Flutter News App"),
+    (title: Center(child: Text("Flutter News App")),
     bottom: TabBar(tabs: [
-      Tab(text: "Braking News",
-            Tab(text: "All News",)
+      Tab(text: 
+      "Braking News"
+      ),
+            Tab(text: 
+            "All News"
+            ,)
 
-      )
-    ]),
+      ],
+      ),
     ),
+    
     body: TabBarView(children: [
-      BreakingNews();
-      AllNews();
-    ]),
+      BreakingNews(),
+      AllNews(),
+    ],
+    ),
     )
     );
   }
