@@ -27,5 +27,3 @@ Future<List<NewsModel>> getAllnews() async{
     }
 }
 }
-  
-}
